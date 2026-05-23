@@ -1,0 +1,66 @@
+langs: ["de","fr","en"]
+
+use_bm25: true
+use_dense: true
+use_translations: true
+multi_query: true
+bm25_rewrite_view: true
+dense_rewrite_view: true
+dense_rewrite_langs: ["de","fr","en"]
+use_reranker: true
+
+# HF Hub model IDs — downloaded automatically on first run.
+# Override with a local path (e.g. "checkpoints/my-local-model") if available.
+dense_model: "budos/checkthat26-e5-large"
+dense_model_by_lang:
+  de: "budos/checkthat26-e5-large"
+  fr: "budos/checkthat26-e5-large"
+  en: "budos/checkthat26-e5-large"
+
+reranker_model: "budos/checkthat26-scibert-reranker"
+
+device: "cuda"
+
+top_k_retrieve: 20
+bm25_top_k_retrieve: 30
+dense_top_k_retrieve: 100
+top_k_output: 5
+rrf_k: 15
+bm25_weight: 0.75
+dense_weight: 1.5
+
+bm25_rewrite_weight: 0.75
+dense_weight_2: 1.5
+dense_weight_3: 0.5
+
+bm25_tokenizer_name: "gpt2"
+bm25_title_boost: 4
+bm25_venue_boost: 1
+bm25_include_abstract: true
+bm25_include_authors: false
+
+bm25_quote_extract: true
+bm25_numeric_boost: 4
+
+translation_dir: ".cache/translations"
+rewrite_dir: ".cache/augmented"
+bm25_cache_path: ".cache/src2_bm25_gpt2_t4_v1_a1_au0"
+corpus_batch_size: 64
+query_batch_size: 64
+rerank_candidates: 5
+rerank_batch_size: 16
+rerank_max_length: 512
+rerank_source: "fused"
+rerank_text_mode: "full"
+reranker_query_mode: "translated"
+reranker_query_mode_by_lang:
+  de: "translated"
+  fr: "translated"
+  en: "raw"
+output_dir: "predictions_src2_translated_hybrid"
+
+# === Results (dev set) ===
+#   de: MRR@1=0.5259  MRR@5=0.6064  S1_MRR@5=0.5758
+#   fr: MRR@1=0.6239  MRR@5=0.6922  S1_MRR@5=0.6832
+#   en: MRR@1=0.5933  MRR@5=0.6524  S1_MRR@5=0.6298
+#   Avg_MRR@5=0.6503  Avg_S1_MRR@5=0.6296

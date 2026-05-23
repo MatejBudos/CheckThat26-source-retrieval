@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Models and caches (models are hosted on HF Hub)
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+.cache/
+
+# Pipeline outputs
+exports/
+predictions*/
+*.zip
+*.tsv
+
+# Old pipeline code (src2 is current)
+src/
+
+# Experiment configs (only current_best_src2.yaml is committed)
+configs/best_retrieval.yaml
+configs/bm25_only.yaml
+configs/default.yaml
+configs/dense_only.yaml
+configs/eval_fast.yaml
+configs/src2_de_focus.yaml
+configs/src2_largepool.yaml
+configs/src2_spacy_chunked.yaml
+configs/src2_translated_hybrid.yaml
+configs/src2_translated_hybrid_rerank_rewritten_de_fr.yaml
+configs/submission_retrieval.yaml
+configs/translated_only_clean.yaml
+
+# Experiment and planning notes
+bm25.md
+implementation.md
+new_pipeline.md
+preprocessing_ideas.md
+progress.md
+src2log.md
+strategy.md
+
+# External resources (task PDFs, docs)
+resources/
+
+# Report — commit only the compiled PDF, ignore everything else
+report/README
+report/README.md
+report/formatting.md
+report/anthology.bib.txt
+report/zadanie.txt
+report/latex/*.tex
+report/latex/*.bib
+report/latex/*.sty
+report/latex/*.bst
+report/latex/*.aux
+report/latex/*.bbl
+report/latex/*.blg
+report/latex/*.log
+report/latex/*.out
+
+# Training data (computed, not raw)
+data/
+
+# Jupyter notebooks (Kaggle/Colab training versions)
+*.ipynb
+notebooks/
+
+# Experiment / sweep scripts
+scripts/sweep_*.py
+scripts/run_experiments.py
+scripts/run_preprocessing_experiments.py
+scripts/run_quickwin_experiments.py
+scripts/eval_*.py
+scripts/bm25_field_boost.py
+scripts/build_src2_kaggle_notebook.py
+scripts/rerank_stage1_export.py
+scripts/export_stage1_candidates.py
+
+# Secrets
+.env
+*.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+wandb/
+runs/
+.claude/
