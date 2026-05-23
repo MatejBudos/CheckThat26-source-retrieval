@@ -68,9 +68,16 @@ report/latex/*.out
 # Training data (computed, not raw)
 data/
 
-# Jupyter notebooks (Kaggle/Colab training versions)
+# Jupyter notebooks — only Kaggle notebooks in notebooks/ are committed
 *.ipynb
-notebooks/
+notebooks/*
+!notebooks/*kaggle*.ipynb
+
+# Training scripts (models trained on Kaggle/Colab, not locally)
+scripts/train_biencoder.py
+scripts/train_reranker.py
+scripts/train_reranker_fast.py
+scripts/run_augmented_training.py
 
 # Experiment / sweep scripts
 scripts/sweep_*.py
