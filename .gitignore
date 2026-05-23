@@ -94,6 +94,8 @@ scripts/export_stage1_candidates.py
 .env
 *.env
 
+CLAUDE.md
+
 # OS / editor
 .DS_Store
 Thumbs.db
